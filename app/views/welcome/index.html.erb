@@ -1,0 +1,40 @@
+<h1>Status Page</h1>
+
+<table>
+  <th>Device Name</th>
+  <th>Device IT Code</th>
+  <th>Device OS</th>
+  <th>Device Model</th>
+  <th>Device OS Version</th>
+  <th>Checked Out?</th>
+  <th>Last Checked Out</th>
+  <th></th>
+
+  <% @devices.each do |device| %>
+      <% @checked = device.checked_out %>
+      <% if @checked == 'no' %>
+          <tr>
+            <% @check = 'Check Out' %>
+      <% else %>
+          <tr id="checked">
+            <% @check = 'Check In' %>
+      <% end %>
+      <td><%= device.name %></td>
+      <td><%= device.code %></td>
+      <td><%= device.os %></td>
+      <td><%= device.model %></td>
+      <td><%= device.version %></td>
+      <% if @check == 'Check In' %>
+          <td><%= device.checked_out %></td>
+          <td><%= device.updated_at.in_time_zone("Central Time (US & Canada)").strftime("%m/%d/%y at %I:%M%p") %></td>
+      <% else %>
+          <td></td>
+          <td></td>
+      <% end %>
+      <td><%= link_to "#{@check}", edit_device_path(device.id) %></td>
+      </tr>
+  <% end %>
+
+</table>
+<br>
+<%= link_to 'Admin Menu', admin_index_path %>

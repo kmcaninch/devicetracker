@@ -1,0 +1,38 @@
+
+<h1>New Device</h1>
+
+
+<%= form_with scope: :device, url: devices_path, local: true do |form| %>
+    <p>
+      <%= form.label :device_name %><br>
+      <%= form.text_field :name %>
+    </p>
+
+    <p>
+      <%= form.label :device_code %><br>
+      <%= form.text_field :code %>
+    </p>
+
+    <p>
+      <%= form.label :device_os %><br>
+      <%= form.text_field :os %>
+    </p>
+
+    <p>
+      <%= form.label :device_version %><br>
+      <%= form.text_field :version %>
+    </p>
+
+    <p>
+      <%= form.label :device_model %><br>
+      <%= form.text_field :model %>
+    </p>
+
+    <%= form.hidden_field :checked_out, :value => 'no' %>
+
+    <p>
+      <%= form.submit %>
+    </p>
+<% end %>
+<br>
+<%= link_to 'Return to Admin Page', admin_index_path %>

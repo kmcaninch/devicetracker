@@ -1,0 +1,23 @@
+<h1>Device Details</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @device.name %>
+  <br>
+  <strong>OS:</strong>
+  <%= @device.os %>
+  <br>
+  <strong>Code:</strong>
+  <%= @device.code %>
+  <br>
+  <strong>Version:</strong>
+  <%= @device.version %>
+  <br>
+  <strong>Model:</strong>
+  <%= @device.model %>
+  <br>
+  <strong>Checked Out:</strong>
+  <%= @device.checked_out %>
+  <br>
+</p>
+
+<%= link_to 'Return to Admin Page', admin_index_path %>

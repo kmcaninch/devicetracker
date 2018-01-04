@@ -1,0 +1,11 @@
+<h1>Success!</h1>
+<br>
+
+<% if @checked_out.blank? == true %>
+    <%= "Thanks for checking in the #{@device_name}!" %>
+<% else %>
+    <%= "Thanks for checking out the #{@device_name}!" %>
+<% end %>
+
+<br>
+<%= link_to 'Back to the Status Page', welcome_index_path %>

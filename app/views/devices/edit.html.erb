@@ -1,0 +1,45 @@
+<% @check == 'no' ? @check_head='Check Out':@check_head='Check In' %>
+<h1><%= @check_head %></h1>
+
+<p>
+  <strong>Device Name:</strong>
+  <%= @device.name %>
+  <br>
+  <strong>Device OS:</strong>
+  <%= @device.os %>
+  <br>
+  <strong>Device Code:</strong>
+  <%= @device.code %>
+  <br>
+  <strong>Device Version:</strong>
+  <%= @device.version %>
+  <br>
+  <strong>Device Model:</strong>
+  <%= @device.model %>
+  <br>
+</p>
+
+<div id="input">
+<% if @check == 'no' %>
+    <%= form_with(model: @device) do |form| %>
+        <p>
+          <%= form.label :device_checked_out, 'First and Last Name' %><br>
+          <%= form.text_field :checked_out, :value => '' %>
+        </p>
+        <p>
+          <%= form.submit 'Check out device', :class => 'submit' %>
+        </p>
+    <% end %>
+<% else %>
+    <%= form_with(model: @device) do |form| %>
+        <p>
+          <%= "Checked out by: #{@device.checked_out}" %>
+          <%= form.hidden_field :checked_out, :value => 'no' %>
+        </p>
+        <p>
+          <%= form.submit 'Check in device', :class => 'submit' %>
+        </p>
+    <% end %>
+<% end %>
+</div>
+<%= link_to 'Back to Status Page', welcome_index_path %>
