@@ -26,7 +26,7 @@
       <td><%= device.version %></td>
       <% if @check == 'Check In' %>
           <td><%= device.checked_out %></td>
-          <td><%= device.updated_at.in_time_zone("Central Time (US & Canada)").strftime("%m/%d/%y at %I:%M%p") %></td>
+          <!--<td><%= device.updated_at.in_time_zone("Central Time (US & Canada)").strftime("%m/%d/%y at %I:%M%p") %></td>-->
       <% else %>
           <td></td>
           <td></td>
